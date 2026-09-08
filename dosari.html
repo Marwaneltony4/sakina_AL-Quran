@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تلاوات الشيخ ياسر الدوسري - سكينة القرآن</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: all 0.25s ease;
+        }
+
+        body {
+            background-color: #080D1A;
+            color: #FFFFFF;
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            padding-bottom: 110px;
+        }
+
+        header {
+            background: linear-gradient(180deg, #0E182A 0%, #080D1A 100%);
+            text-align: center;
+            padding: 25px 0 15px 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+        }
+
+        .logo-img {
+            max-width: 260px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.15));
+        }
+
+        .main-header-sec {
+            max-width: 1000px;
+            margin: 20px auto 10px auto;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .section-title {
+            color: #F59E0B;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0;
+            border-right: 4px solid #F59E0B;
+            padding-right: 12px;
+        }
+
+        .section-desc {
+            font-family: 'Almarai', sans-serif;
+            color: #94A3B8;
+            font-size: 15px;
+            margin-top: 5px;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 260px;
+        }
+
+        .search-input {
+            width: 100%;
+            background-color: #0E192C;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #FFF;
+            font-family: 'Almarai', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #F59E0B;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+        }
+
+        .surahs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 25px 40px 25px;
+        }
+
+        .surahs-box {
+            background-color: #0E192C;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .surahs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .surah-card {
+            background-color: #132238;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .surah-card:hover {
+            border-color: #F59E0B;
+            background-color: #1A2D4A;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.12);
+        }
+
+        .surah-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .surah-number {
+            font-family: 'Almarai', sans-serif;
+            font-size: 13px;
+            color: #F59E0B;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .surah-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .play-btn-icon {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #F59E0B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .surah-card:hover .play-btn-icon {
+            background-color: #F59E0B;
+            color: #080D1A;
+        }
+
+        .extra-surah { display: none; }
+        .surahs-box.expanded .extra-surah { display: flex; }
+
+        .show-more-btn {
+            display: block;
+            margin: 20px auto 0 auto;
+            background: transparent;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #F59E0B;
+            font-family: 'Almarai', sans-serif;
+            font-size: 14px;
+            padding: 8px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .show-more-btn:hover {
+            background-color: #F59E0B;
+            color: #080D1A;
+            font-weight: bold;
+        }
+
+        /* --- شريط الصوت السفلي --- */
+        .bottom-player {
+            position: fixed;
+            bottom: -130px;
+            left: 0;
+            width: 100%;
+            background: rgba(14, 25, 44, 0.96);
+            backdrop-filter: blur(12px);
+            border-top: 2px solid #F59E0B;
+            padding: 14px 30px;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+            transition: bottom 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+        }
+
+        .bottom-player.active {
+            bottom: 0;
+        }
+
+        /* جعل شريط التقديم يبدأ من الشمال لليمين (LTR) */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            direction: ltr;
+        }
+
+        .time-text {
+            font-family: 'Almarai', sans-serif;
+            font-size: 12px;
+            color: #94A3B8;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .progress-bar-wrap {
+            flex: 1;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .player-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 200px;
+        }
+
+        .player-title {
+            color: #F59E0B;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .player-sub {
+            font-family: 'Almarai', sans-serif;
+            font-size: 13px;
+            color: #CBD5E1;
+            margin-top: 2px;
+        }
+
+        .controls-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ctrl-btn {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #F59E0B;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+            font-size: 12px;
+        }
+
+        .ctrl-btn:hover {
+            background-color: #F59E0B;
+            color: #080D1A;
+        }
+
+        .play-pause-main {
+            background-color: #F59E0B;
+            color: #080D1A;
+            width: 46px;
+            height: 46px;
+            font-size: 18px;
+            border: none;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .play-pause-main:hover {
+            transform: scale(1.06);
+        }
+
+        .action-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .volume-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .volume-range {
+            accent-color: #F59E0B;
+            width: 70px;
+            cursor: pointer;
+        }
+
+        .download-link-btn {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #080D1A;
+            font-family: 'Almarai', sans-serif;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+        }
+
+        .download-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="default.html">
+            <img src="Logo_سكينة القرآن.jpg" alt="سكينة القرآن" class="logo-img">
+        </a>
+    </header>
+
+    <div class="main-header-sec">
+        <div>
+            <h2 class="section-title">تلاوات الشيخ ياسر الدوسري</h2>
+            <div class="section-desc">اختر السورة للاستماع المباشر والتحميل</div>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="ابحث باسم السورة..." onkeyup="filterSurahs()">
+        </div>
+    </div>
+
+    <div class="surahs-container">
+        <div class="surahs-box" id="surahsBox">
+            <div class="surahs-grid" id="surahsGrid"></div>
+            <button class="show-more-btn" id="toggleBtn" onclick="toggleSurahs()">عرض جميع السور</button>
+        </div>
+    </div>
+
+    <div class="bottom-player" id="bottomPlayer">
+        <!-- شريط الوقت (شغال من الشمال لليمين) -->
+        <div class="progress-container">
+            <span class="time-text" id="currentTime">00:00</span>
+            <div class="progress-bar-wrap" id="progressWrap" onclick="seekAudio(event)">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span class="time-text" id="durationTime">00:00</span>
+        </div>
+
+        <div class="player-content">
+            <div class="player-info">
+                <div>
+                    <div class="player-title" id="playingSurahName">سورة الفاتحة</div>
+                    <div class="player-sub">القارئ: ياسر الدوسري</div>
+                </div>
+            </div>
+
+            <div class="controls-group">
+                <button class="ctrl-btn" onclick="skipTime(-10)" title="تراجع 10 ثوانٍ">10-</button>
+                <button class="ctrl-btn play-pause-main" id="playPauseBtn" onclick="togglePlayPause()">❚❚</button>
+                <button class="ctrl-btn" onclick="skipTime(10)" title="تقديم 10 ثوانٍ">10+</button>
+            </div>
+
+            <div class="action-group">
+                <div class="volume-wrap">
+                    <span style="color:#F59E0B; font-size:12px;">🔊</span>
+                    <input type="range" class="volume-range" id="volumeSlider" min="0" max="1" step="0.05" value="1" oninput="changeVolume(this.value)">
+                </div>
+                
+                <a href="#" id="downloadBtn" target="_blank" class="download-link-btn">
+                    <span>تحميل السورة</span>
+                    <span>⬇</span>
+                </a>
+            </div>
+        </div>
+
+        <audio id="mainAudio" style="display:none;"></audio>
+    </div>
+
+    <script>
+        const surahs = [
+            "الفاتحة", "البقرة", "آل عمران", "النساء", "المائدة", "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
+            "هود", "يوسف", "الرعد", "إبراهيم", "الحجر", "النحل", "الإسراء", "الكهف", "مريم", "طه",
+            "الأنبياء", "الحج", "المؤمنون", "النور", "الفرقان", "الشعراء", "النمل", "القصص", "العنكبوت", "الروم",
+            "لقمان", "السجدة", "الأحزاب", "سبأ", "فاطر", "يس", "الصافات", "ص", "الزمر", "غافر",
+            "فصلت", "الشورى", "الزخرف", "الدخان", "الجاثية", "الأحقاف", "محمد", "الفتح", "الحجرات", "ق",
+            "الذاريات", "الطور", "النجم", "القمر", "الرحمن", "الواقعة", "الحديد", "المجادلة", "الحشر", "الممتحنة",
+            "الصف", "الجمعة", "المنافقون", "التغابن", "الطلاق", "التحريم", "الملك", "القلم", "الحاقة", "المعارج",
+            "نوح", "الجن", "المزمل", "المدثر", "القيامة", "الإنسان", "المرسلات", "النبأ", "النازعات", "عبس",
+            "التكوير", "الانفطار", "المطففين", "الانشقاق", "البروج", "الطارق", "الأعلى", "الغاشية", "الفجر", "البلد",
+            "الشمس", "الليل", "الضحى", "الشرح", "التين", "العلق", "القدر", "البينة", "الزلزلة", "العاديات",
+            "القارعة", "التكاثر", "العصر", "الهمزة", "الفيل", "قريش", "المعون", "الكوثر", "الكافرون", "النصر",
+            "المسد", "الإخلاص", "الفلق", "الناس"
+        ];
+
+        const surahsGrid = document.getElementById('surahsGrid');
+        const mainAudio = document.getElementById('mainAudio');
+        const bottomPlayer = document.getElementById('bottomPlayer');
+        const playingSurahName = document.getElementById('playingSurahName');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressFill = document.getElementById('progressFill');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationTimeEl = document.getElementById('durationTime');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        surahs.forEach((name, index) => {
+            const id = index + 1;
+            const card = document.createElement('div');
+            card.className = `surah-card ${id > 12 ? 'extra-surah' : ''}`;
+            card.setAttribute('data-name', name);
+            card.onclick = () => playSurah(id, name);
+            card.innerHTML = `
+                <div class="surah-info">
+                    <span class="surah-number">${id}</span>
+                    <span class="surah-name">سورة ${name}</span>
+                </div>
+                <div class="play-btn-icon">▶</div>
+            `;
+            surahsGrid.appendChild(card);
+        });
+
+        function toggleSurahs() {
+            var box = document.getElementById('surahsBox');
+            var btn = document.getElementById('toggleBtn');
+            box.classList.toggle('expanded');
+            btn.innerText = box.classList.contains('expanded') ? 'عرض أقل' : 'عرض جميع السور';
+        }
+
+        function playSurah(id, name) {
+            // تحويل رقم السورة إلى 3 أرقام مثل (001, 002, ..., 114) لتوافق سيرفر mp3quran المجاني
+            const formattedId = String(id).padStart(3, '0');
+            
+            // رابط مباشر وسريع أونلاين وبدون حقوق ملكية
+            const audioPath = `https://server11.mp3quran.net/yasser/${formattedId}.mp3`;
+            
+            playingSurahName.innerText = `سورة ${name}`;
+            mainAudio.src = audioPath;
+            
+            downloadBtn.href = audioPath;
+            downloadBtn.setAttribute('target', '_blank');
+
+            mainAudio.play();
+            playPauseBtn.innerText = '❚❚';
+            bottomPlayer.classList.add('active');
+        }
+
+        function togglePlayPause() {
+            if (mainAudio.paused) {
+                mainAudio.play();
+                playPauseBtn.innerText = '❚❚';
+            } else {
+                mainAudio.pause();
+                playPauseBtn.innerText = '▶';
+            }
+        }
+
+        function skipTime(seconds) {
+            mainAudio.currentTime += seconds;
+        }
+
+        function changeVolume(val) {
+            mainAudio.volume = val;
+        }
+
+        mainAudio.ontimeupdate = function() {
+            if (mainAudio.duration) {
+                const percent = (mainAudio.currentTime / mainAudio.duration) * 100;
+                progressFill.style.width = percent + '%';
+                currentTimeEl.innerText = formatTime(mainAudio.currentTime);
+                durationTimeEl.innerText = formatTime(mainAudio.duration);
+            }
+        };
+
+        function seekAudio(e) {
+            const wrap = document.getElementById('progressWrap');
+            const rect = wrap.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+            
+            if (mainAudio.duration) {
+                mainAudio.currentTime = (clickX / width) * mainAudio.duration;
+            }
+        }
+
+        function formatTime(seconds) {
+            let min = Math.floor(seconds / 60);
+            let sec = Math.floor(seconds % 60);
+            if (min < 10) min = '0' + min;
+            if (sec < 10) sec = '0' + sec;
+            return `${min}:${sec}`;
+        }
+
+        function filterSurahs() {
+            const input = document.getElementById('searchInput').value.trim().toLowerCase();
+            const cards = document.querySelectorAll('.surah-card');
+            const box = document.getElementById('surahsBox');
+            
+            if(input !== '') {
+                box.classList.add('expanded');
+            }
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

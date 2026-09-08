@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سكينة القرآن - الصفحة الرئيسية</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: all 0.25s ease;
+        }
+
+        body {
+            background-color: #080D1A;
+            color: #FFFFFF;
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        header {
+            background: linear-gradient(180deg, #0E182A 0%, #080D1A 100%);
+            text-align: center;
+            padding: 25px 0 15px 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+        }
+
+        .logo-img {
+            max-width: 260px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.15));
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #0E192C;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            color: #F59E0B;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero-desc {
+            font-family: 'Almarai', sans-serif;
+            color: #94A3B8;
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #080D1A;
+            font-family: 'Almarai', sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px 25px 40px 25px;
+        }
+
+        .section-title {
+            color: #F59E0B;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-right: 4px solid #F59E0B;
+            padding-right: 12px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background-color: #0E192C;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #FFF;
+        }
+
+        .feature-card:hover {
+            border-color: #F59E0B;
+            background-color: #132238;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            color: #F59E0B;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-family: 'Almarai', sans-serif;
+            font-size: 14px;
+            color: #94A3B8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Logo_سكينة القرآن.jpg" alt="سكينة القرآن" class="logo-img">
+    </header>
+
+    <div class="main-container">
+        
+        <div class="hero-section">
+            <div class="hero-title">مرحباً بك في موقع سكينة القرآن</div>
+            <div class="hero-desc">استمع إلى أروع التلاوات القرآنية الخاشعة بأعلى جودة بصوت نخبة من كبار القراء في العالم الإسلامي.</div>
+            <a href="reciters.html" class="btn-primary">استمع الآن</a>
+        </div>
+
+        <div class="section-title">أقسام الموقع</div>
+        
+        <div class="cards-grid">
+            <a href="reciters.html" class="feature-card">
+                <div class="card-icon">🎙️</div>
+                <div class="card-title">قائمة القراء</div>
+                <div class="card-desc">استمع لتلاوات خاشعة لمختلف الشيوخ والقراء.</div>
+            </a>
+            
+            <a href="dosari.html" class="feature-card">
+                <div class="card-icon">📖</div>
+                <div class="card-title">تلاوات ياسر الدوسري</div>
+                <div class="card-desc">استماع وتحميل جميع سور القرآن الكريم بصوت الشيخ.</div>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

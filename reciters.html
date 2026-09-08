@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القراء - سكينة القرآن</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: all 0.25s ease;
+        }
+
+        body {
+            background-color: #080D1A;
+            color: #FFFFFF;
+            font-family: 'Amiri', serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        header {
+            background: linear-gradient(180deg, #0E182A 0%, #080D1A 100%);
+            text-align: center;
+            padding: 25px 0 15px 0;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+        }
+
+        .logo-img {
+            max-width: 260px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.15));
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 25px;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            border-right: 4px solid #F59E0B;
+            padding-right: 15px;
+        }
+
+        .section-title {
+            color: #F59E0B;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .section-desc {
+            font-family: 'Almarai', sans-serif;
+            color: #94A3B8;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .reciters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .reciter-card {
+            background-color: #0E192C;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .reciter-card:hover {
+            border-color: #F59E0B;
+            background-color: #132238;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+        }
+
+        .reciter-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reciter-avatar-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #F59E0B;
+        }
+
+        .reciter-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reciter-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+
+        .reciter-sub {
+            font-family: 'Almarai', sans-serif;
+            font-size: 13px;
+            color: #94A3B8;
+            margin-top: 3px;
+        }
+
+        .arrow-icon {
+            color: #F59E0B;
+            font-size: 18px;
+            background: rgba(245, 158, 11, 0.1);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reciter-card:hover .arrow-icon {
+            background-color: #F59E0B;
+            color: #080D1A;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="default.html">
+            <img src="Logo_سكينة القرآن.jpg" alt="سكينة القرآن" class="logo-img">
+        </a>
+    </header>
+
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">اختر القارئ</h1>
+            <div class="section-desc">استمع إلى كبار القراء بالمصحف المرتل الكامل</div>
+        </div>
+
+        <div class="reciters-grid">
+            <!-- كارت الشيخ ياسر الدوسري -->
+            <a href="dosari.html" class="reciter-card">
+                <div class="reciter-details">
+                    <img src="yasser_aldosari.jpg" alt="الشيخ ياسر الدوسري" class="reciter-avatar-img">
+                    <div class="reciter-info">
+                        <div class="reciter-name">الشيخ ياسر الدوسري</div>
+                        <div class="reciter-sub">المصحف المرتل الكامل</div>
+                    </div>
+                </div>
+                <div class="arrow-icon">❮</div>
+            </a>
+
+            <!-- كارت الشيخ محمد اللحيدان -->
+            <a href="luhaidan.html" class="reciter-card">
+                <div class="reciter-details">
+                    <img src="mhmd.jpg" alt="الشيخ محمد اللحيدان" class="reciter-avatar-img">
+                    <div class="reciter-info">
+                        <div class="reciter-name">الشيخ محمد اللحيدان</div>
+                        <div class="reciter-sub">المصحف المرتل الكامل</div>
+                    </div>
+                </div>
+                <div class="arrow-icon">❮</div>
+            </a>
+
+            <!-- كارت الشيخ محمد صديق المنشاوي -->
+            <a href="minshawi.html" class="reciter-card">
+                <div class="reciter-details">
+                    <img src="menshawy.jpg" alt="الشيخ محمد صديق المنشاوي" class="reciter-avatar-img">
+                    <div class="reciter-info">
+                        <div class="reciter-name">الشيخ محمد صديق المنشاوي</div>
+                        <div class="reciter-sub">المصحف المرتل الكامل</div>
+                    </div>
+                </div>
+                <div class="arrow-icon">❮</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
